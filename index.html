@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <script src="angular.min-1.6.4.js"></script>
+  <script src="app.js"></script>
+  <script src="iso-3166-country-codes-angular.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="custom.css">
+
+  <style>
+
+  </style>
+
+</head>
+
+<body ng-app="ContactApp">
+  <hr>
+  <div class="container bootstrap snippet" ng-controller="ContactCtrl as ctrl">
+    <div class="">
+      <h1>ContactApp</h1>
+    </div>
+    <div class="row">
+      <div class="col-lg-6">
+        <div class="main-box no-header clearfix">
+          <div class="main-box-body clearfix">
+            <div class="table-responsive">
+              <table class="table user-list">
+                <thead>
+                  <tr>
+                    <th><span>User</span></th>
+                    <th><span>Action</span></th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr ng-repeat="contact in ctrl.contacts track by $index" >
+                    <td>
+                      <img ng-src="{{contact.picture.thumbnail}}" alt="">
+                      <span class="user-link">{{contact.name.first+" "+contact.name.last | capitalize}}</span>
+                    </td>
+                    <td style="width: 20%;">
+                      <a href="#" ng-click="ctrl.selectContact($index)" class="table-link">
+                        <span class="fa-stack">
+                          <i class="fa fa-square fa-stack-2x"></i>
+                          <i class="fa fa-eye fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+
+
+
+                      <a href="#" class="table-link">
+                        <span class="fa-stack">
+                          <i class="fa fa-square fa-stack-2x"></i>
+                          <i class="fa fa-pencil fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                      <a href="#" class="table-link danger">
+                        <span class="fa-stack">
+                          <i class="fa fa-square fa-stack-2x"></i>
+                          <i class="fa fa-trash-o fa-stack-1x fa-inverse"></i>
+                        </span>
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-6 toppad" ng-if="ctrl.selectedContact">
+        <div class="panel panel-info">
+          <div class="panel-heading">
+            <h3 class="panel-title">{{ctrl.selectedContact.name.first  + " " + ctrl.selectedContact.name.last | capitalize}}</h3>
+          </div>
+          <div class="panel-body">
+            <div class="row">
+              <div class="col-md-3 col-lg-3 " align="center">
+                <img alt="User Pic" ng-src="{{ctrl.selectedContact.picture.large}}" class="img-circle img-responsive">
+              </div>
+
+              <div class=" col-md-9 col-lg-9 ">
+                <table class="table table-user-information">
+                  <tbody>
+                    <tr>
+                      <td>Gender:</td>
+                      <td>{{ctrl.selectedContact.gender | capitalize }}</td>
+                    </tr>
+                    <tr>
+                      <td>Registered</td>
+                      <td>{{ctrl.selectedContact.registered }}</td>
+                    </tr>
+                    <tr>
+                      <td>Date of Birth</td>
+                      <td>{{ctrl.selectedContact.dob}}</td>
+                    </tr>
+
+                    <tr>
+                      <tr>
+                        <td>Location</td>
+                        <td>
+                            {{ctrl.selectedContact.location.street}} (street)<br>
+                            {{ctrl.selectedContact.location.city}} (city)<br>
+                            {{ctrl.selectedContact.location.state}} (state)<br>
+                            {{ctrl.selectedContact.location.postcode}} (postcode)<br>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Country</td>
+                        <td>
+                            {{ctrl.selectedContact.nat | isoCountry }}
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>Email</td>
+                        <td><a href="mailto:info@support.com"> {{ctrl.selectedContact.email}}</a></td>
+                      </tr>
+                      <td>Phone Number</td>
+                      <td>{{ctrl.selectedContact.phone}} (Landline)<br>{{ctrl.selectedContact.cell}}(Mobile)
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</body>
+</html>
