@@ -1,230 +1,27 @@
-(function() {
+(function () {
     var app = angular.module("ContactApp");
-    app.service("ContactDataSvc",function () {
-        this.contacts =  [
-            {
-                "gender": "male",
-                "name": {
-                    "title": "mr",
-                    "first": "fernando",
-                    "last": "howell"
-                },
-                "location": {
-                    "street": "8125 jones road",
-                    "city": "roscrea",
-                    "state": "galway",
-                    "postcode": 29534
-                },
-                "email": "fernando.howell@example.com",
-                "login": {
-                    "username": "blackduck326",
-                    "password": "virus",
-                    "salt": "qSNMCFg3",
-                    "md5": "d36bcda7d59229d64eb3443e9b62c852",
-                    "sha1": "254ced42ef050faf16a8886460a4884f26efd125",
-                    "sha256": "89066362c8e3c1ccae64a5e7d40d4018ffdcf0b1b1aaa86b9ce70557e0677429"
-                },
-                "dob": "1981-10-05",
-                "registered": "2014-08-30",
-                "phone": "041-638-9269",
-                "cell": "081-779-4475",
-                "id": {
-                    "name": "PPS",
-                    "value": "8995412T"
-                },
-                "picture": {
-                    "large": "https://randomuser.me/api/portraits/men/96.jpg",
-                    "medium": "https://randomuser.me/api/portraits/med/men/96.jpg",
-                    "thumbnail": "https://randomuser.me/api/portraits/thumb/men/96.jpg"
-                },
-                "nat": "IE"
-            },
-            {
-                "gender": "female",
-                "name": {
-                    "title": "miss",
-                    "first": "stephanie",
-                    "last": "reid"
-                },
-                "location": {
-                    "street": "5515 mcclellan rd",
-                    "city": "vernon",
-                    "state": "illinois",
-                    "postcode": 45486
-                },
-                "email": "stephanie.reid@example.com",
-                "login": {
-                    "username": "bluegoose331",
-                    "password": "jimmie",
-                    "salt": "q1dHawhN",
-                    "md5": "f034cca4cd1469c626e6ddab517b2e21",
-                    "sha1": "7d3cd37f99f3ff974806ab5f8e704c119f0c39ee",
-                    "sha256": "e66de960e3953b17f1f55a4324af2488eb95ef496fcc8f442d5e8db9de4e881d"
-                },
-                "dob": "1948-01-19",
-                "registered": "2005-01-19",
-                "phone": "(936)-222-4332",
-                "cell": "(495)-480-5952",
-                "id": {
-                    "name": "SSN",
-                    "value": "200-54-3143"
-                },
-                "picture": {
-                    "large": "https://randomuser.me/api/portraits/women/62.jpg",
-                    "medium": "https://randomuser.me/api/portraits/med/women/62.jpg",
-                    "thumbnail": "https://randomuser.me/api/portraits/thumb/women/62.jpg"
-                },
-                "nat": "US"
-            },{
-                "gender": "female",
-                "name": {
-                    "title": "miss",
-                    "first": "ivy",
-                    "last": "hughes"
-                },
-                "location": {
-                    "street": "8605 avalon drive",
-                    "city": "hamilton",
-                    "state": "otago",
-                    "postcode": 47364
-                },
-                "email": "ivy.hughes@example.com",
-                "login": {
-                    "username": "orangetiger538",
-                    "password": "starcraft",
-                    "salt": "DpE2qlqL",
-                    "md5": "93b4bb079acd5e54fb57618cdb220b26",
-                    "sha1": "3ec2676e0c7395c0e456827495efe6d95c1387b5",
-                    "sha256": "f18ae1b2ba2e615d998f53c02a757027b65015a3d8090807174fd6d0e1f7f36c"
-                },
-                "dob": "1959-03-13",
-                "registered": "2004-07-29",
-                "phone": "(235)-874-1651",
-                "cell": "(761)-655-6745",
-                "id": {
-                    "name": "",
-                    "value": null
-                },
-                "picture": {
-                    "large": "https://randomuser.me/api/portraits/women/9.jpg",
-                    "medium": "https://randomuser.me/api/portraits/med/women/9.jpg",
-                    "thumbnail": "https://randomuser.me/api/portraits/thumb/women/9.jpg"
-                },
-                "nat": "NZ"
-            },
-            {
-                "gender": "male",
-                "name": {
-                    "title": "mr",
-                    "first": "james",
-                    "last": "walker"
-                },
-                "location": {
-                    "street": "7213 ti rakau drive",
-                    "city": "rotorua",
-                    "state": "wellington",
-                    "postcode": 32988
-                },
-                "email": "james.walker@example.com",
-                "login": {
-                    "username": "purplewolf331",
-                    "password": "tyrone",
-                    "salt": "gpcyBljd",
-                    "md5": "164d90d23f75eb8041df8ae1734d7d16",
-                    "sha1": "cf46a021c0200d284f37beec72cf5abe34a6ce05",
-                    "sha256": "54119ee17bf8ff4636bef8c98c87d6f5851a5d3a41cb88df5ede916c03fb0a12"
-                },
-                "dob": "1991-09-29",
-                "registered": "2013-02-19",
-                "phone": "(656)-777-5905",
-                "cell": "(935)-473-3969",
-                "id": {
-                    "name": "",
-                    "value": null
-                },
-                "picture": {
-                    "large": "https://randomuser.me/api/portraits/men/19.jpg",
-                    "medium": "https://randomuser.me/api/portraits/med/men/19.jpg",
-                    "thumbnail": "https://randomuser.me/api/portraits/thumb/men/19.jpg"
-                },
-                "nat": "NZ"
-            },
-            {
-                "gender": "female",
-                "name": {
-                    "title": "miss",
-                    "first": "vanessa",
-                    "last": "heinz"
-                },
-                "location": {
-                    "street": "1847 meisenweg",
-                    "city": "euskirchen",
-                    "state": "hessen",
-                    "postcode": 62532
-                },
-                "email": "vanessa.heinz@example.com",
-                "login": {
-                    "username": "blackpeacock237",
-                    "password": "jumper",
-                    "salt": "VXzqHCSY",
-                    "md5": "528c895ba626755c00820c5b7cd7cf05",
-                    "sha1": "f936e7715ad7155e1a870cfe09c397be5f35e32b",
-                    "sha256": "db94ed318d7020724aac3dd1e84c244ee705db50997be5593e15c478c9214e43"
-                },
-                "dob": "1974-11-08",
-                "registered": "2002-10-11",
-                "phone": "0279-9237961",
-                "cell": "0173-1028954",
-                "id": {
-                    "name": "",
-                    "value": null
-                },
-                "picture": {
-                    "large": "https://randomuser.me/api/portraits/women/29.jpg",
-                    "medium": "https://randomuser.me/api/portraits/med/women/29.jpg",
-                    "thumbnail": "https://randomuser.me/api/portraits/thumb/women/29.jpg"
-                },
-                "nat": "DE"
-            },
-            {
-                "gender": "female",
-                "name": {
-                    "title": "ms",
-                    "first": "rachel",
-                    "last": "arnold"
-                },
-                "location": {
-                    "street": "3245 lakeshore rd",
-                    "city": "montgomery",
-                    "state": "north carolina",
-                    "postcode": 82168
-                },
-                "email": "rachel.arnold@example.com",
-                "login": {
-                    "username": "bigkoala478",
-                    "password": "bluebell",
-                    "salt": "vpENqYNC",
-                    "md5": "e3a3dcc91c983a3e8310bc4c572ab1d9",
-                    "sha1": "2530e2f35757abef3b6567e563dacb6009444a7a",
-                    "sha256": "d4b3e2b5f1cea22745500be1b4c3137a5f4f7558bf7101c1affb86ff049ffef6"
-                },
-                "dob": "1970-08-09",
-                "registered": "2013-09-23",
-                "phone": "(710)-780-2794",
-                "cell": "(285)-860-0989",
-                "id": {
-                    "name": "SSN",
-                    "value": "274-74-5082"
-                },
-                "picture": {
-                    "large": "https://randomuser.me/api/portraits/women/78.jpg",
-                    "medium": "https://randomuser.me/api/portraits/med/women/78.jpg",
-                    "thumbnail": "https://randomuser.me/api/portraits/thumb/women/78.jpg"
-                },
-                "nat": "US"
-            }
+    app.service("ContactDataSvc", function ($http) {
 
-        ];
+        var self = this;
+
+        self.getContacts = function () {
+            var promise1 = $http.get('http://localhost:3000/contacts')
+                .then(function (response) {
+                    return response.data;
+                });
+            var promise2 = promise1.then(function (response) {
+                return response.data;
+            });
+            return promise1;
+        }
+
+        self.getContact = function (index) {
+            var contact = $http.get('http://localhost:3000/contacts/' + index)
+                .then(function (response) {
+                    return response.data;
+                });
+            return contact;
+        }
 
     });
 })();
